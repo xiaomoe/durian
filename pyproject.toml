@@ -1,0 +1,95 @@
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = ["black>=23.1.0", "mypy>=1.1.1", "refurb>=1.13.0", "ruff>=0.0.254"]
+
+[project]
+name = "durian"
+version = "0.0.1"
+description = "Minimal WSGI API framework based on werkzeug"
+authors = [{ name = "studyxiao", email = "studyxiao@163.com" }]
+dependencies = ["werkzeug>=2.2.3"]
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["durian"]
+
+select = [
+    "A",   # flake8-builtins
+    "ANN",
+    "B",   # flake8-bugbear
+    "BLE", # flake8-blind-except
+    "C4",  # flake8-comprehensions
+    "C90", # mccabe
+    "D",   # pydocstyle
+    "DJ",  # flake8-django
+    "DTZ", # flake8-datetimez
+    "E",   # pycodestyle errors
+    "ERA", # eradicate
+    "EXE", # flake8-executable
+    "F",   # pyflakes
+    "G",   # flake8-logging-format
+    # "I",   # isort
+    "ICN", # flake8-import-conventions
+    "ISC", # flake8-implicit-str-concat
+    "N",   # pep8-naming
+    "PIE", # flake8-pie
+    "PLC", # pylint - convention
+    "PLE", # pylint - error
+    "PLW", # pylint - warning
+    "PT",
+    "PTH", # flake8-use-pathlib
+    "Q",   # flake8-quotes
+    "RET", # flake8-return
+    "RUF", # Ruff-specific rules
+    "S",   # flake8-bandit
+    "SIM", # flake8-simplify
+    "T10", # flake8-debugger
+    "T20", # flake8-print
+    "TCH", # flake8-type-checking
+    "TID", # flake8-tidy-imports
+    "UP",  # pyupgrade
+    "W",   # pycodestyle - warning
+    "YTT", # flake8-2020
+]
+ignore = [
+    "D100",   # pydocstyle - missing docstring in public module
+    "D101",   # pydocstyle - missing docstring in public class
+    "D102",   # pydocstyle - missing docstring in public method
+    "D103",   # pydocstyle - missing docstring in public function
+    "D104",   # pydocstyle - missing docstring in public package
+    "D105",   # pydocstyle - missing docstring in magic method
+    "D106",   # pydocstyle - missing docstring in public nested class
+    "D107",   # pydocstyle - missing docstring in __init__
+    'D211',
+    'D213',
+    'ANN101',
+    'ANN102',
+    'ANN401',
+    'N818',
+]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.flake8-builtins]
+builtins-ignorelist = ["dict", "format", "id", "set"]
+
+[tool.mypy]
+files = ["durian", "example"]
+python_version = 3.11
+strict = true
+show_error_codes = true
+ignore_missing_imports = true
+check_untyped_defs = false
+disallow_untyped_calls = false
+disallow_untyped_decorators = false
+
+[tool.refurb]
+python_version = "3.11"
